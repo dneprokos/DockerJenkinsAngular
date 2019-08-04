@@ -26,9 +26,13 @@ export class AuthServiceService {
   }
 
   isUserLogged(): Boolean{
-    let userName = sessionStorage.getItem('user'); 
+    let userName = this.getCurrentUser(); 
     
     if (userName && userName === 'admin') return true;    
     return false;
+  }
+
+  getCurrentUser(): string {
+    return sessionStorage.getItem('user');
   }
 }
