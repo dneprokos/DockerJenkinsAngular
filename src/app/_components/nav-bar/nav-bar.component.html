@@ -1,0 +1,48 @@
+<div class="toolbar" *ngIf="isComponentShown">
+    <mat-toolbar color="primary">
+        <mat-toolbar-row class="content">
+            <div fxShow="true" fxHide.lt-md="true">
+                <span>DockerJenkinsAngular</span>
+                <span class="example-spacer"></span>
+            </div>
+            <div fxShow="true" fxHide.lt-md="true">
+                <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+                <div>
+                    <a mat-button [routerLink]="'home'">
+                        <mat-icon>home</mat-icon>
+                        Home
+                    </a>
+                    <a mat-button [routerLink]="'#'">
+                        <mat-icon>accessibility</mat-icon>
+                        Age test
+                    </a>
+                    <a mat-button [routerLink]="'#'">
+                        <mat-icon>stars</mat-icon>
+                        Favorite Club test
+                    </a>
+                </div>
+            </div>
+            <div class="account">
+                <mat-menu #appMenu="matMenu">
+                    <ng-template matMenuContent let-name="name">
+                        <button mat-menu-item>
+                            Settings
+                            <mat-icon>settings</mat-icon>
+                        </button>
+                        <button (click)="SignOut()" mat-menu-item>
+                            Log off
+                            <mat-icon>work_off</mat-icon>
+                        </button>
+                    </ng-template>
+                </mat-menu>
+                <button mat-icon-button [matMenuTriggerFor]="appMenu">
+                    <mat-icon md-36>account_circle</mat-icon>
+                    <mat-label>{{ userName }}</mat-label>
+                </button>
+            </div>
+        </mat-toolbar-row>
+        <mat-toolbar-row class="content">
+            <span style="font-size: 12px;">Simple website designed for Docker practice</span>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</div>

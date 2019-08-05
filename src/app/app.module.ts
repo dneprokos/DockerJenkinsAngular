@@ -12,12 +12,15 @@ import { AuthServiceService } from './_services/authService/auth-service.service
 import { AuthGuardService } from './_services/auth-guard.service';
 
 import {FormsModule} from '@angular/forms';
+import { NavBarComponent } from './_components/nav-bar/nav-bar.component';
+import { GlobalEventsManagerService } from './_services/global-events-manager.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import {FormsModule} from '@angular/forms';
   ],
   providers: [
     AuthServiceService,
-    AuthGuardService
+    AuthGuardService,
+    GlobalEventsManagerService
   ],
   bootstrap: [AppComponent]
 })
