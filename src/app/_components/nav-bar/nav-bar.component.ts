@@ -16,17 +16,26 @@ export class NavBarComponent implements OnInit {
     this.globalEventsManager.showNavBarEmitter.subscribe((mode)=>{           
       this.isComponentShown = mode;
     });
-    this.userName = this.authService.getCurrentUser();
+    globalEventsManager.showUserNameEmitter.subscribe((mode)=>{
+      if (mode) this.userName = this.authService.getCurrentUser();
+    })
+    
    }
 
   ngOnInit() {
     this.globalEventsManager.showNavBar(true);
+    this.userName = this.authService.getCurrentUser();
   }
 
   SignOut() {
+    this.performSignOut();
+  }
+
+  private performSignOut(){
     this.router.navigate(['login']);
     this.globalEventsManager.showNavBar(false);
     this.authService.logout();
+    this.userName = undefined;
   }
 
 }
