@@ -1,21 +1,26 @@
-<div *ngIf="isComponentShown">
+<div class="toolbar" *ngIf="isComponentShown">
     <mat-toolbar color="primary">
-        <mat-toolbar-row>
-            <h1>DockerJenkinsAngular</h1>
-            <span class="menu-spacer"></span>
-            <div>
-                <a mat-button [routerLink]="'/home'">
-                    <mat-icon>home</mat-icon>
-                    Home
-                </a>
-                <a mat-button [routerLink]="'/create-account'">
-                    <mat-icon>accessibility</mat-icon>
-                    Age test
-                </a>
-                <a mat-button [routerLink]="'/create-account'">
-                    <mat-icon>stars</mat-icon>
-                    Favorite Club test
-                </a>
+        <mat-toolbar-row class="content">
+            <div fxShow="true" fxHide.lt-md="true">
+                <span>DockerJenkinsAngular</span>
+                <span class="example-spacer"></span>
+            </div>
+            <div fxShow="true" fxHide.lt-md="true">
+                <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+                <div>
+                    <a mat-button [routerLink]="'home'">
+                        <mat-icon>home</mat-icon>
+                        Home
+                    </a>
+                    <a mat-button [routerLink]="'#'">
+                        <mat-icon>accessibility</mat-icon>
+                        Age test
+                    </a>
+                    <a mat-button [routerLink]="'#'">
+                        <mat-icon>stars</mat-icon>
+                        Favorite Club test
+                    </a>
+                </div>
             </div>
             <div class="account">
                 <mat-menu #appMenu="matMenu">
@@ -36,7 +41,7 @@
                 </button>
             </div>
         </mat-toolbar-row>
-        <mat-toolbar-row>
+        <mat-toolbar-row class="content">
             <span style="font-size: 12px;">Simple website designed for Docker practice</span>
         </mat-toolbar-row>
     </mat-toolbar>

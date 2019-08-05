@@ -21,9 +21,10 @@ export class LoginComponent implements OnInit {
   login() : void {
     let result = this.authService.login(this.username, this.password);
     
-    if (result){   
+    if (result){
+      this.globalEventsManager.showNavBar(true);   
       this.router.navigate(['home']);
-      this.globalEventsManager.showNavBar(true);
+      this.globalEventsManager.updateUserName(true);
     }      
     else alert("Invalid credentials");
   }
