@@ -14,13 +14,15 @@ import { AuthGuardService } from './_services/auth-guard.service';
 import {FormsModule} from '@angular/forms';
 import { NavBarComponent } from './_components/nav-bar/nav-bar.component';
 import { GlobalEventsManagerService } from './_services/global-events-manager.service';
+import { FooterComponent } from './_components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    NavBarComponent
+    NavBarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
