@@ -19,7 +19,6 @@ export class NavBarComponent implements OnInit {
     globalEventsManager.showUserNameEmitter.subscribe((mode)=>{
       if (mode) this.userName = this.authService.getCurrentUser();
     })
-    
    }
 
   ngOnInit() {
