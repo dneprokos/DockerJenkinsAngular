@@ -1,0 +1,16 @@
+<div class="toolbar" *ngIf="isComponentShown">
+    <mat-toolbar color="primary">
+        18+
+        <div class="text">
+            <p>Created by <b>Kostiantyn Teltov</b> for training purposes.
+                {{ createdYear | date: 'yyyy' }} - {{ yearNow | date: 'yyyy' }}
+                @NON-COMMERCIAL USE PERMITTED
+            </p>
+            <p>
+                <b>Contact Email:</b>{{ email }};
+                <b>Skype:</b> {{ skype }}.
+            </p>
+        </div>
+
+    </mat-toolbar>
+</div>
