@@ -25,11 +25,11 @@
             <div class="account">
                 <mat-menu #appMenu="matMenu">
                     <ng-template matMenuContent let-name="name">
-                        <button mat-menu-item>
+                        <button mat-menu-item id="settingsBtn">
                             Settings
                             <mat-icon>settings</mat-icon>
                         </button>
-                        <button (click)="SignOut()" mat-menu-item>
+                        <button (click)="SignOut()" mat-menu-item id="signOutBtn">
                             Log off
                             <mat-icon>work_off</mat-icon>
                         </button>
