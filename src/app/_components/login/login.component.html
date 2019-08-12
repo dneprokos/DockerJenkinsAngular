@@ -9,14 +9,14 @@
                 <tr>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matTooltip="Use 'test@test.com' as user" matInput placeholder="Username" [(ngModel)]="username" name="username" required>                            
+                            <input id="login" matTooltip="Use 'test@test.com' as user" matInput placeholder="Username" [(ngModel)]="username" name="username" required>                            
                         </mat-form-field>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matTooltip="Use 'test' as password" matInput placeholder="Password" [(ngModel)]="password" type="password"
+                            <input id="password" matTooltip="Use 'test' as password" matInput placeholder="Password" [(ngModel)]="password" type="password"
                                 name="password" required>
                         </mat-form-field>
                     </td>
@@ -26,7 +26,7 @@
         <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-raised-button (click)="login()" color="primary">Login</button>
+        <button id="loginBtn" mat-raised-button (click)="login()" color="primary">Login</button>
     </mat-card-actions>
 </mat-card>
 </div>
