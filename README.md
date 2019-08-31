@@ -22,6 +22,13 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Running end-to-end tests in docker container
+Docker and docker-compose should be installed
+
+Run following command "docker-compose up" in root project directory(wait until installation has finished).
+
+Run "docker exec -it testapp protractor ./e2e/protractor-ci.conf.js" in the same root directory.
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
