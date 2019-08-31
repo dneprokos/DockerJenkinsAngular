@@ -16,6 +16,8 @@ exports.config = {
   capabilities: {
     browserName: 'chrome'
   },
+  baseUrl: 'http://testapp:4200/',
+  seleniumAddress: 'http://hub:4444/wd/hub/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
