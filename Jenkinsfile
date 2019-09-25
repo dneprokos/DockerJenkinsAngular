@@ -1,9 +1,11 @@
 pipeline {
   agent any
+  triggers { pollSCM('* * * * *') }
   stages {
     stage('Get Source') {
       steps {
         echo 'Getting repository sources'
+        deleteDir() /* clean up our workspace */
       }
     }
     stage('Build/Deploy') {
