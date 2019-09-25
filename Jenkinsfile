@@ -1,21 +1,23 @@
 pipeline {
   agent any
-  triggers { pollSCM('* * * * *') }
+  triggers { 
+    pollSCM('* * * * *') 
+  }
   stages {
     stage('Get Source') {
       steps {
-        echo 'Getting repository sources!'
+        echo '###Getting repository sources!###'
         deleteDir() /* clean up our workspace */
       }
     }
-    stage('Build/Deploy') {
+    stage('###Build/Deploy###') {
       steps {
-        echo 'Start deployment'
+        echo 'Start deployment!'
       }
     }
-    stage('Run e2e tests') {
+    stage('###Run e2e tests###') {
       steps {
-        echo 'Starting to run e2e tests'
+        echo 'Starting to run e2e tests!'
       }
     }
   }
