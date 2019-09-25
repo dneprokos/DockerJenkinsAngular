@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Get Source') {
       steps {
-        echo 'Getting repository sources'
+        echo 'Getting repository sources!'
         deleteDir() /* clean up our workspace */
       }
     }
