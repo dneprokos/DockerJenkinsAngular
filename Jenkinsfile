@@ -4,7 +4,7 @@ pipeline {
     pollSCM('* * * * *') 
   }
   stages {
-    stage('Get Source') {
+    stage('###Clean up repository###') {
       steps {
         echo '###Getting repository sources!###'
         deleteDir() /* clean up our workspace */
