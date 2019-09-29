@@ -23,7 +23,7 @@ pipeline {
         timeout(time: 10, unit: 'MINUTES')
       }
       steps {
-        echo 'Hello ${ADMIN_NAME}. We are starting to cleanup workspace.'
+        echo "Hello ${ADMIN_NAME}. We are starting to cleanup workspace."
         deleteDir() /* clean up our workspace */
       }
     }
@@ -37,7 +37,7 @@ pipeline {
         TEST_TYPES = 'e2e' /* variables on pipeline stage level */
       }
       steps {
-        echo 'Starting to run ${TEST_TYPES} tests'
+        echo "Starting to run ${TEST_TYPES} tests"
       }
     }
     stage('Deploy to production') {
@@ -56,7 +56,7 @@ pipeline {
   }
   post {
         always {
-            echo 'This is Always post step example. Thanks for using Jenkins. Goodbye ${params.PERSON}'          
+            echo "This is Always post step example. Thanks for using Jenkins. Goodbye ${params.PERSON}"          
         }
         success {
             echo 'This is example of sucess step'
