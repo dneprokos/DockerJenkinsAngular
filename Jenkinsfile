@@ -42,12 +42,13 @@ pipeline {
     }
     stage('Deploy to production') {
       when {
+        beforeInput true
         branch 'master'
       }
-      input(
+      input {
         message "Should we deploy on production?"
         ok "Deploy!"
-      )
+      }
       steps {
         echo 'Start deployment to Production'
       }
