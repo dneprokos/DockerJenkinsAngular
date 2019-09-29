@@ -5,7 +5,7 @@ pipeline {
   }
   environment { 
     ADMIN_NAME = 'Kostiantyn Teltov' /* variables on pipeline level */
-    BUILD_NUMBER = env.BUILD_NUMBER /* https://opensource.triology.de/jenkins/pipeline-syntax/globals */
+    BUILD_NUMBER = 'env.BUILD_NUMBER' /* https://opensource.triology.de/jenkins/pipeline-syntax/globals */
   }
   options {
     disableConcurrentBuilds() /* Disallow concurrent executions of the Pipeline. 
