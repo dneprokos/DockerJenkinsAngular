@@ -5,6 +5,7 @@ pipeline {
   }
   environment { 
     ADMIN_NAME = 'Kostiantyn Teltov' /* variables on pipeline level */
+    BUILD_NUMBER = "env.BUILD_NUMBER" /* https://opensource.triology.de/jenkins/pipeline-syntax/globals */
   }
   options {
     disableConcurrentBuilds() /* Disallow concurrent executions of the Pipeline. 
@@ -23,7 +24,7 @@ pipeline {
         timeout(time: 10, unit: 'MINUTES')
       }
       steps {
-        echo "Hello ${ADMIN_NAME}. We are starting to cleanup workspace."
+        echo "Hello ${ADMIN_NAME}. We are starting to cleanup workspace for build number ${BUILD_NUMBER}."
         deleteDir() /* clean up our workspace */
       }
     }
@@ -63,6 +64,9 @@ pipeline {
         }
         failure {
             echo 'This is example of failure step'
+            mail to: 'dneprokos@gmail.com.com',
+             subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+             body: "Something is wrong with ${env.BUILD_URL}"
         }
         cleanup {
             echo 'This is example of cleanup step'
