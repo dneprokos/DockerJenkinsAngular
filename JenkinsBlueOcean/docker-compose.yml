@@ -5,13 +5,16 @@ services:
     user: root
     env_file: .env
     ports:
-    - ${MAP_PORT_WINDOWS}:8080
-    - 50000:50000
+      - ${MAP_PORT_WINDOWS}:8080
+      - 50000:50000
     environment:
-    - JAVA_OPTS=-Xmx2048m
-    - JENKINS_SLAVE_AGENT_PORT=50000
+      - JAVA_OPTS=-Xmx2048m
+      - JENKINS_SLAVE_AGENT_PORT=50000
     volumes:
-    - ${JENKINS_HOME_WINDOWS}/jenkins-data:/var/jenkins_home
-    - ${JENKINS_HOME_WINDOWS}:/home
-
-  
+      - ${USER_HOME_WINDOWS}/jenkins-data:/var/jenkins_home
+      - ${USER_HOME_WINDOWS}:/home
+  slavedockerssh:
+    container_name: slavedockerssh
+    build: ./DockerSlaveTemplate
+    environment:
+      - JENKINS_SLAVE_SSH_PUBKEY=${SSH_PUBLIC}
