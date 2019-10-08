@@ -30,7 +30,7 @@ pipeline {
     stage('Build/Deploy') {
       steps {
         echo 'Start deployment'
-        sh 'docker-compose up'
+        sh 'docker run hello-world'
       }
     }
     stage('Run e2e tests') {
