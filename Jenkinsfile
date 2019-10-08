@@ -31,6 +31,7 @@ pipeline {
     stage('Build/Deploy') {
       steps {
         echo 'Start deployment'
+        sh 'docker-compose --version'
       }
     }
     stage('Run e2e tests') {
