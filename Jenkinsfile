@@ -24,8 +24,7 @@ pipeline {
         timeout(time: 10, unit: 'MINUTES')
       }
       steps {
-        echo "Hello ${ADMIN_NAME}. We are starting to cleanup workspace for build number ${BUILD_NUMBER}."
-        deleteDir() /* clean up our workspace */
+        echo "Nothing happens here"
       }
     }
     stage('Build/Deploy') {
@@ -70,7 +69,8 @@ pipeline {
              body: "Something is wrong with ${env.BUILD_URL}"
         }
         cleanup {
-            echo 'This is example of cleanup step'
+            echo "Hello ${ADMIN_NAME}. We are starting to cleanup workspace for build number ${BUILD_NUMBER}."
+            deleteDir()
         }
   } /* Pipeline may contain a lot of other post steps. Please find reference here: https://jenkins.io/doc/book/pipeline/syntax/ */
 }
