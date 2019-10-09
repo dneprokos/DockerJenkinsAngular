@@ -19,18 +19,13 @@ pipeline {
     string(name: 'PERSON', defaultValue: "Mr ADMIN", description: 'Who should I say goodbye to?')
   } /* A few other data types can be used for the parameters. Please find reference here: https://jenkins.io/doc/book/pipeline/syntax/ */
   stages {
-    stage('Prepare workspace') {
-      options { /* You may also define options per stage. But it has limited amount of supported methods */
-        timeout(time: 10, unit: 'MINUTES')
-      }
-      steps {
-        echo "Hello ${ADMIN_NAME}. We are starting to cleanup workspace for build number ${BUILD_NUMBER}."
-        deleteDir() /* clean up our workspace */
-      }
-    }
     stage('Build/Deploy') {
+      options { /* You may also define options per stage. But it has limited amount of supported methods */
+        timeout(time: 15, unit: 'MINUTES')
+      }
       steps {
         echo 'Start deployment'
+        sh 'docker-compose up -d'
       }
     }
     stage('Run e2e tests') {
@@ -69,7 +64,8 @@ pipeline {
              body: "Something is wrong with ${env.BUILD_URL}"
         }
         cleanup {
-            echo 'This is example of cleanup step'
+            echo "Hello ${ADMIN_NAME}. We are starting to cleanup workspace for build number ${BUILD_NUMBER}."
+            deleteDir()
         }
   } /* Pipeline may contain a lot of other post steps. Please find reference here: https://jenkins.io/doc/book/pipeline/syntax/ */
 }
