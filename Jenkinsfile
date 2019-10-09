@@ -65,6 +65,8 @@ pipeline {
         }
         cleanup {
             echo "Hello ${ADMIN_NAME}. We are starting to cleanup workspace for build number ${BUILD_NUMBER}."
+            sh 'docker-compose down'
+            sh 'docker system prune -af'
             deleteDir()
         }
   } /* Pipeline may contain a lot of other post steps. Please find reference here: https://jenkins.io/doc/book/pipeline/syntax/ */
