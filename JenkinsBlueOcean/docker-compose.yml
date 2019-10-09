@@ -10,9 +10,11 @@ services:
     environment:
       - JAVA_OPTS=-Xmx2048m
       - JENKINS_SLAVE_AGENT_PORT=50000
+      - COMPOSE_CONVERT_WINDOWS_PATHS=1
     volumes:
       - ${USER_HOME_WINDOWS}/jenkins-data:/var/jenkins_home
       - ${USER_HOME_WINDOWS}:/home
+      - /var/run/docker.sock:/var/run/docker.sock
   slavedockerssh:
     container_name: slavedockerssh
     build: ./DockerSlaveTemplate
