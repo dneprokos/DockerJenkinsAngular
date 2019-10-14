@@ -1,7 +1,8 @@
 version: "3"
 services:
   master:
-    image: jenkinsci/blueocean
+    container_name: ${JENKINS_MASTER_NAME}
+    build: ./DockerMasterTemplate
     user: root
     env_file: .env
     ports:
@@ -16,7 +17,7 @@ services:
       - ${USER_HOME_WINDOWS}:/home
       - /var/run/docker.sock:/var/run/docker.sock
   slavedockerssh:
-    container_name: slavedockerssh
+    container_name: ${JENKINS_SLAVE_SSH_NAME}
     build: ./DockerSlaveTemplate
     environment:
       - JENKINS_SLAVE_SSH_PUBKEY=${SSH_PUBLIC}
