@@ -11,6 +11,7 @@ import { GlobalEventsManagerService } from 'src/app/_services/global-events-mana
 export class LoginComponent implements OnInit {
   username: string;
   password: string;
+  showSpinner: boolean;
 
   constructor(private router: Router, private authService: AuthServiceService, private globalEventsManager: GlobalEventsManagerService) { }
 
