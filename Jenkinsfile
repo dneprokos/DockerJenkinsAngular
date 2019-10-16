@@ -19,6 +19,12 @@ pipeline {
     string(name: 'PERSON', defaultValue: "Mr ADMIN", description: 'Who should I say goodbye to?')
   } /* A few other data types can be used for the parameters. Please find reference here: https://jenkins.io/doc/book/pipeline/syntax/ */
   stages {
+    stage('Pre-cleanup') {
+      steps{
+        echo "Remove docker containers"
+        sh 'docker system prune -af'
+      }
+    }
     stage('Build/Deploy') {
       options { /* You may also define options per stage. But it has limited amount of supported methods */
         timeout(time: 15, unit: 'MINUTES')
