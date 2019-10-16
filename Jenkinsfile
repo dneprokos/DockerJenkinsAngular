@@ -23,6 +23,7 @@ pipeline {
       steps{
         echo "Remove docker containers"
         sh 'docker system prune -af'
+        sh 'docker image ls -a'
       }
     }
     stage('Build/Deploy') {
