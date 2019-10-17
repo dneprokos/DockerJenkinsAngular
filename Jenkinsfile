@@ -22,6 +22,7 @@ pipeline {
             }
             steps {
                 echo 'Start deployment'
+                sh 'dir'
                 sh 'docker-compose up -d'
                 sh 'hubHealthCheck.sh'
             }
