@@ -8,3 +8,4 @@ ENV PATH $PATH:/usr/lib/jvm/java-1.8-openjdk/bin
 COPY . .
 EXPOSE 4200 4444
 CMD npm start
+ENTRYPOINT sh hubHealthCheck.sh
