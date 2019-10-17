@@ -14,7 +14,6 @@ pipeline {
             steps {
                 echo "Remove docker containers"
                 sh 'docker system prune -af'
-                sh 'docker image ls -a'
             }
         }
         stage('Build/Deploy') {
@@ -29,7 +28,7 @@ pipeline {
         stage('Run e2e tests') {
             steps {
                 echo "Starting to run e2e tests"
-                sh 'docker image ls -a'
+                sh 'docker exec -it testapp protractor ./e2e/protractor-ci.conf.js'
             }
         }
         stage('Artifacts') {
