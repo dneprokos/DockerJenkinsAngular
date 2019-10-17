@@ -23,6 +23,7 @@ pipeline {
             steps {
                 echo 'Start deployment'
                 sh 'docker-compose up -d'
+                sh 'hubHealthCheck.sh'
             }
         }
         stage('Run e2e tests') {
