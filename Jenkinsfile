@@ -28,7 +28,7 @@ pipeline {
         stage('Run e2e tests') {
             steps {
                 echo "Starting to run e2e tests"
-                sh 'docker exec -it testapp protractor ./e2e/protractor-ci.conf.js'
+                sh 'docker exec testapp protractor ./e2e/protractor-ci.conf.js'
             }
         }
         stage('Artifacts') {
