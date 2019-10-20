@@ -42,9 +42,10 @@ pipeline {
     }
     post {
         cleanup {
-            sh 'docker-compose down'
-            sh 'docker system prune -af'
-            deleteDir()
+            sh "Temp"
+            //sh 'docker-compose down'
+            //sh 'docker system prune -af'
+            //deleteDir()
         }
     }
 }
