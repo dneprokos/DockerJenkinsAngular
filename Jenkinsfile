@@ -23,8 +23,7 @@ pipeline {
             steps {
                 echo 'Start deployment'
                 sh 'docker-compose up -d'
-                echo 'dir'
-                sh 'hubHealthCheck.sh'
+                sh 'docker container exec -it testapp hubHealthCheck.sh'
                 echo 'Test environment is ready'
             }
         }
