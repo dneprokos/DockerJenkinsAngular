@@ -22,8 +22,9 @@ pipeline {
             }
             steps {
                 echo 'Start deployment'
-                sh 'dir'
                 sh 'docker-compose up -d'
+                sh 'hubHealthCheck.sh'
+                echo 'Test environment is ready'
             }
         }
         stage('Run e2e tests') {

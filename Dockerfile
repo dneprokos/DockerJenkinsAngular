@@ -4,8 +4,8 @@ COPY package.json ./
 RUN npm install
 RUN npm install -g protractor@5.4.2
 RUN apk add openjdk8
+RUN apk add curl jq dos2unix
 ENV PATH $PATH:/usr/lib/jvm/java-1.8-openjdk/bin
 COPY . .
 EXPOSE 4200 4444
 CMD npm start
-ENTRYPOINT sh hubHealthCheck.sh
