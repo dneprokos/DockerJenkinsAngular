@@ -41,9 +41,9 @@ pipeline {
     }
     post {
         cleanup {
-            sh 'docker-compose down'
-            sh 'docker system prune -af'
-            deleteDir()
+            //sh 'docker-compose down'
+            //sh 'docker system prune -af'
+            //deleteDir()
         }
     }
 }
