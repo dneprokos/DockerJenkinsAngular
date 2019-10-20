@@ -23,14 +23,15 @@ pipeline {
             steps {
                 echo 'Start deployment'
                 sh 'docker-compose up -d'
-                sh 'docker container exec testapp hubHealthCheck.sh'
+                sh 'docker container exec -t testapp sh hubHealthCheck.sh'
                 echo 'Test environment is ready'
             }
         }
         stage('Run e2e tests') {
             steps {
                 echo "Starting to run e2e tests"
-                sh 'docker exec testapp protractor ./e2e/protractor-ci.conf.js'
+                sh 'docker exec -it testapp sh'
+                sh 'protractor ./e2e/protractor-ci.conf.js'
             }
         }
         stage('Artifacts') {
@@ -41,10 +42,9 @@ pipeline {
     }
     post {
         cleanup {
-            echo "Temp"
-            //sh 'docker-compose down'
-            //sh 'docker system prune -af'
-            //deleteDir()
+            sh 'docker-compose down'
+            sh 'docker system prune -af'
+            deleteDir()
         }
     }
 }
