@@ -3,11 +3,14 @@
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
 const { SpecReporter } = require('jasmine-spec-reporter');
+const jasmineReporters  = require('jasmine-reporters');
+
 
 /**
  * @type { import("protractor").Config }
  */
 exports.config = {
+  resultJsonOutputFile: './results/test-results.json',
   allScriptsTimeout: 11000,
   specs: [
     './src/**/tests/*.e2e-spec.ts'
@@ -28,12 +31,24 @@ exports.config = {
     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.json')
     });
-    jasmine.getEnv().addReporter(new SpecReporter({ spec: { 
-      //displayStacktrace: true,
-      displaySuccessful: true,
-      displayErrorMessages: true,
-      displayFailed: true,
-      displayDuration: true 
-    } }));
+
+    let jUnitReporter = new jasmineReporters.JUnitXmlReporter({
+      consolidateAll: true,
+      savePath: './e2e/test-results',
+      filePrefix: 'reportXMLoutput'
+    });
+
+    let specReporter = new SpecReporter({ 
+      spec: { 
+        displaySuccessful: true,
+        displayErrorMessages: true,
+        displayFailed: true,
+        displayDuration: true
+      },
+      suite: { displayNumber: true },
+      summary: { displayFailed: true } 
+    });
+
+    jasmine.getEnv().addReporter(specReporter);
   }
 };
