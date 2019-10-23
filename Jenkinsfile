@@ -40,7 +40,11 @@ pipeline {
         }
     }
     post {
+        always {
+            archiveArtifacts artifacts: 'test-results.json'
+        }
         cleanup {
+            sh 'test'
             sh 'docker-compose down'
             sh 'docker system prune -af'
             deleteDir()
