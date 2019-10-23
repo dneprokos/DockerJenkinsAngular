@@ -37,14 +37,8 @@ pipeline {
     }
     post {
         always {
-            sh 'docker cp testapp:/app/e2e/results /var/jenkins_home/workspace/'
-            archiveArtifacts artifacts: 'test-results.json'
-        }
-        cleanup {
-            sh 'ls'
-            //sh 'docker-compose down'
-            //sh 'docker system prune -af'
-            //deleteDir()
+            sh 'docker cp testapp:/app/e2e/results .'
+            archiveArtifacts artifacts: '/e2e/results/test-results.json'
         }
     }
 }
