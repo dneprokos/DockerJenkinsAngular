@@ -31,7 +31,7 @@ pipeline {
         stage('Run e2e tests') {
             steps {
                 echo "Starting to run e2e tests"
-                sh 'docker exec -t testapp protractor ./e2e/protractor-ci.conf.js'       
+                sh 'protractor ./e2e/protractor-ci.conf.js'       
             }
         }
     }
@@ -41,9 +41,9 @@ pipeline {
         }
         cleanup {
             sh 'ls'
-            sh 'docker-compose down'
-            sh 'docker system prune -af'
-            deleteDir()
+            //sh 'docker-compose down'
+            //sh 'docker system prune -af'
+            //deleteDir()
         }
     }
 }
