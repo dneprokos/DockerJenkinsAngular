@@ -10,7 +10,7 @@ const jasmineReporters  = require('jasmine-reporters');
  * @type { import("protractor").Config }
  */
 exports.config = {
-  resultJsonOutputFile: './results/test-results.json',
+  resultJsonOutputFile: './e2e/results/test-results.json',
   allScriptsTimeout: 11000,
   specs: [
     './src/**/tests/*.e2e-spec.ts'
