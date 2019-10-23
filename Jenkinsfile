@@ -38,7 +38,7 @@ pipeline {
     post {
         always {
             sh 'docker cp testapp:/app/e2e/results .'
-            archiveArtifacts artifacts: '/e2e/results/test-results.json'
+            archiveArtifacts artifacts: './e2e/results/test-results.json'
         }
     }
 }
