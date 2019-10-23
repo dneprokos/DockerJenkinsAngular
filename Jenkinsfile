@@ -13,6 +13,7 @@ pipeline {
         stage('Pre-cleanup') {
             steps {
                 echo "Remove docker containers"
+                sh 'docker-compose down'
                 sh 'docker system prune -af'
             }
         }
@@ -22,7 +23,7 @@ pipeline {
             }
             steps {
                 echo 'Start deployment'
-                sh 'docker-compose up -d build testapp'
+                sh 'docker-compose up -d'
                 sh 'docker container exec -t testapp sh hubHealthCheck.sh'
                 echo 'Test environment is ready'
             }
