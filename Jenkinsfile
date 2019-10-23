@@ -41,5 +41,10 @@ pipeline {
             sh 'docker cp testapp:/app/e2e/results .'
             archiveArtifacts artifacts: './e2e/results/test-results.json'
         }
+        cleanup {
+            sh 'docker-compose down'
+            sh 'docker system prune -af'
+            deleteDir()
+        }
     }
 }
