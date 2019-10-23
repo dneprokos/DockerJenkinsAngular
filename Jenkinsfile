@@ -33,11 +33,6 @@ pipeline {
                 sh 'docker exec -t testapp protractor ./e2e/protractor-ci.conf.js'       
             }
         }
-        stage('Artifacts') {
-            steps {
-                echo "Storing artifacts"
-            }
-        }
     }
     post {
         always {
