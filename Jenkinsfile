@@ -31,12 +31,13 @@ pipeline {
         stage('Run e2e tests') {
             steps {
                 echo "Starting to run e2e tests"
-                sh 'protractor ./e2e/protractor-ci.conf.js'       
+                sh 'docker container exec -t testapp protractor ./e2e/protractor-ci.conf.js'       
             }
         }
     }
     post {
         always {
+            sh 'docker cp testapp:/app/e2e/results /var/jenkins_home/workspace/'
             archiveArtifacts artifacts: 'test-results.json'
         }
         cleanup {
