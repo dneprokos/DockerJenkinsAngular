@@ -29,8 +29,6 @@ services:
     image: dneprokos/testapp
     ports:               
       - "4200:4200"
-    volumes:
-      - /var/jenkins_home/workspace/test:/app/e2e/results
     depends_on:             
       - chrome
       - hub
