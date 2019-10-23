@@ -39,7 +39,7 @@ pipeline {
             archiveArtifacts artifacts: 'test-results.json'
         }
         cleanup {
-            sh 'test'
+            sh 'ls'
             sh 'docker-compose down'
             sh 'docker system prune -af'
             deleteDir()
