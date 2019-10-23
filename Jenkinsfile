@@ -30,6 +30,7 @@ pipeline {
         }
         stage('Run e2e tests') {
             steps {
+                sh 'sleep 5'
                 echo "Starting to run e2e tests"
                 sh 'docker container exec -t testapp protractor ./e2e/protractor-ci.conf.js'       
             }
