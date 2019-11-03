@@ -13,8 +13,8 @@ pipeline {
         stage('Pre-cleanup') {
             steps {
                 echo "Remove docker containers"
+                sh 'docker-compose down'
                 sh 'docker system prune -af'
-                sh 'docker image ls -a'
             }
         }
         stage('Build/Deploy') {
@@ -24,21 +24,23 @@ pipeline {
             steps {
                 echo 'Start deployment'
                 sh 'docker-compose up -d'
+                sh 'docker container exec -t testapp sh hubHealthCheck.sh'
+                echo 'Test environment is ready'
             }
         }
         stage('Run e2e tests') {
             steps {
+                sh 'sleep 5'
                 echo "Starting to run e2e tests"
-                sh 'docker image ls -a'
-            }
-        }
-        stage('Artifacts') {
-            steps {
-                echo "Storing artifacts"
+                sh 'docker container exec -t testapp protractor ./e2e/protractor-ci.conf.js'       
             }
         }
     }
     post {
+        always {
+            sh 'docker cp testapp:/app/e2e/results .'
+            archiveArtifacts artifacts: 'results/test-results.json'
+        }
         cleanup {
             sh 'docker-compose down'
             sh 'docker system prune -af'
