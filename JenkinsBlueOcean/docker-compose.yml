@@ -2,6 +2,7 @@ version: "3"
 services:
   master:
     container_name: ${JENKINS_MASTER_NAME}
+    image: JenkinsDockerCompose
     build: ./DockerMasterTemplate
     user: root
     env_file: .env

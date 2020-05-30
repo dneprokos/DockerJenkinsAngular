@@ -39,7 +39,8 @@ pipeline {
     post {
         always {
             sh 'docker cp testapp:/app/e2e/results .'
-            archiveArtifacts artifacts: 'results/test-results.json'
+            sh 'docker cp testapp:/app/e2e/test-results'
+            archiveArtifacts artifacts: 'results/test-results.json' 
         }
         cleanup {
             sh 'docker-compose down'
