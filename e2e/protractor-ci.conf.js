@@ -50,5 +50,6 @@ exports.config = {
     });
 
     jasmine.getEnv().addReporter(specReporter);
+    jasmine.getEnv().addReporter(jUnitReporter);
   }
 };
