@@ -22,6 +22,7 @@ import { RadioButtonsComponent } from './_components/radio-buttons/radio-buttons
 import { ListBoxesComponent } from './_components/list-boxes/list-boxes.component';
 import { TogglesComponent } from './_components/toggles/toggles.component';
 import { DatePickersComponent } from './_components/date-pickers/date-pickers.component';
+import { TablePageComponent } from './_components/table-page/table-page.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DatePickersComponent } from './_components/date-pickers/date-pickers.co
     RadioButtonsComponent,
     ListBoxesComponent,
     TogglesComponent,
-    DatePickersComponent
+    DatePickersComponent,
+    TablePageComponent
   ],
   imports: [
     BrowserModule,
