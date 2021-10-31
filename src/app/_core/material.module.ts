@@ -17,6 +17,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 
@@ -39,7 +40,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   MatCheckboxModule,
   MatSelectModule,
   MatRadioModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatSlideToggleModule
   ],
   exports: [
   CommonModule,
@@ -59,7 +61,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
    MatCheckboxModule,
    MatSelectModule,
    MatRadioModule,
-   MatPaginatorModule
+   MatPaginatorModule,
+   MatSlideToggleModule
    ]
 })
 export class CustomMaterialModule { }
