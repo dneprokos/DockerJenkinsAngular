@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ThemePalette} from '@angular/material/core';
 
 @Component({
   selector: 'app-toggles',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./toggles.component.css']
 })
 export class TogglesComponent implements OnInit {
+  color: ThemePalette = 'accent';
+  checked = false;
+  disabled = false;
 
   constructor() { }
 
