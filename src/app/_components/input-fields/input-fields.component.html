@@ -1,1 +1,59 @@
 <p>input-fields works!</p>
+<mat-card>
+<form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Role (disabled)</mat-label>
+      <input matInput disabled value="QA Automation">
+    </mat-form-field>
+  
+    <table class="example-full-width" cellspacing="0">
+        <tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>First name</mat-label>
+        <input [(ngModel)]="firstName" name="firstName" matInput id="firstName">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Long Last Name That Will Be Truncated</mat-label>
+        <input [(ngModel)]="lastName" name="lastName" matInput id="lastName">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Prefered language</mat-label>
+        <input [(ngModel)]="primaryProgrammingLanguage" name="primaryProgrammingLanguage" matInput placeholder="C#">
+            </mat-form-field>
+        </td>
+        </tr>
+    </table>
+  
+    <table class="example-full-width" cellspacing="0">
+        <tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Other programming languages</mat-label>
+                <input matInput [(ngModel)]="otherProgrammingLenguages" name="otherProgrammingLenguages">
+              </mat-form-field>
+            </td>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Total years experience</mat-label>
+                <input matInput [(ngModel)]="yearsExperience" name="yearsExperience">
+              </mat-form-field>
+            </td>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>City</mat-label>
+                <input matInput [(ngModel)]="city" name="city">
+              </mat-form-field>
+            </td>
+        </tr
+    ></table>
+  </form>
+    <mat-card-actions>
+        <button id="print" mat-raised-button (click)="print()" color="primary">Print details</button>
+    </mat-card-actions>
+    <form class="example-form">
+        <mat-form-field class="resume-text" appearance="fill">
+            <mat-label>Data will be prineted here</mat-label>
+            <textarea disabled matInput [(ngModel)]="shortResume" name="shortResume"></textarea>
+        </mat-form-field>
+    </form> 
+</mat-card>
+
+
+
