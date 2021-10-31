@@ -1,4 +1,4 @@
-import {NgModule} from "@angular/core";
+import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -13,6 +13,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+
 
 @NgModule({
   imports: [
@@ -29,7 +32,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   MatSidenavModule,
   MatListModule,
   MatGridListModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatCheckboxModule
   ],
   exports: [
   CommonModule,
@@ -45,7 +49,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
    MatSidenavModule,
    MatListModule,
    MatGridListModule,
-   MatTooltipModule
-   ],
+   MatTooltipModule,
+   MatCheckboxModule
+   ]
 })
 export class CustomMaterialModule { }
