@@ -16,6 +16,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -37,7 +38,8 @@ import { MatRadioModule } from '@angular/material/radio';
   MatTooltipModule,
   MatCheckboxModule,
   MatSelectModule,
-  MatRadioModule
+  MatRadioModule,
+  MatPaginatorModule
   ],
   exports: [
   CommonModule,
@@ -56,7 +58,8 @@ import { MatRadioModule } from '@angular/material/radio';
    MatTooltipModule,
    MatCheckboxModule,
    MatSelectModule,
-   MatRadioModule
+   MatRadioModule,
+   MatPaginatorModule
    ]
 })
 export class CustomMaterialModule { }

@@ -6,10 +6,10 @@ import { CheckBoxesComponent } from './_components/check-boxes/check-boxes.compo
 import { InputFieldsComponent } from './_components/input-fields/input-fields.component';
 import { DropDownsComponent } from './_components/drop-downs/drop-downs.component';
 import { RadioButtonsComponent } from './_components/radio-buttons/radio-buttons.component';
-import { ListBoxesComponent } from './_components/list-boxes/list-boxes.component';
 import { TogglesComponent } from './_components/toggles/toggles.component';
 import { DatePickersComponent } from './_components/date-pickers/date-pickers.component';
 import { AuthGuardService } from './_services/auth-guard.service';
+import { TablePageComponent } from './_components/table-page/table-page.component';
 
 
 const routes: Routes = [
@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'input', component: InputFieldsComponent, canActivate: [AuthGuardService] },
   { path: 'drop-down', component: DropDownsComponent, canActivate: [AuthGuardService] },
   { path: 'radio-button', component: RadioButtonsComponent, canActivate: [AuthGuardService] },
-  { path: 'list-box', component: ListBoxesComponent, canActivate: [AuthGuardService] },
+  { path: 'table', component: TablePageComponent, canActivate: [AuthGuardService] },
   { path: 'toggle', component: TogglesComponent, canActivate: [AuthGuardService] },
   { path: 'date-picker', component: DatePickersComponent, canActivate: [AuthGuardService] }
 ];
