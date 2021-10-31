@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -33,7 +34,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   MatListModule,
   MatGridListModule,
   MatTooltipModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatSelectModule
   ],
   exports: [
   CommonModule,
@@ -50,7 +52,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
    MatListModule,
    MatGridListModule,
    MatTooltipModule,
-   MatCheckboxModule
+   MatCheckboxModule,
+   MatSelectModule
    ]
 })
 export class CustomMaterialModule { }
