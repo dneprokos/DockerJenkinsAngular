@@ -1,6 +1,8 @@
 # DockerJenkinsAngular
+A traning project first designed to pratice in docker containers and then updated with a different page elements.
+Can be a good pratice in UI automation 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.2.
 
 ## Development server
 
