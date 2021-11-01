@@ -1,6 +1,7 @@
 # DockerJenkinsAngular
 A traning project first designed to pratice in docker containers and then updated with a different page elements.
 Can be a good pratice in UI automation 
+Deployed on Firebase: https://qa-automation-test-site.web.app/ 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.2.
 
@@ -34,3 +35,25 @@ Run "docker exec -it testapp protractor ./e2e/protractor-ci.conf.js" in the same
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Deploy to firebase
+
+- Firebase account should be created https://firebase.google.com/ 
+
+1. Install firebase-tools with command - "npm install -g firebase-tools"
+2. Build production env with command "npm run build-prod"
+3. Login to firebase account "firebase login"
+4. Initialize firebase "firebase init". 
+
+Select the following items:
+a) Configure and deploy Firebase Hosting sites 
+b) What do you want to use as your public directory? (public) - Specify "dist/<project name in dist directory>"
+c) Configure as a single-page app (rewrite all URLs to /index.html)? - Select No
+
+5. Run deploy "fire-deploy-hosting"
+
+Note: This deployment instruction was working with Angular version 12.2.2
+
+
+
+
