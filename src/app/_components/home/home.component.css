@@ -10,6 +10,7 @@ mat-grid-tile {
     padding-right: 30px;
     padding-top: 30px;
     font-size: 17px;
+    vertical-align: baseline;
 }
 
 mat-card-image {
@@ -35,3 +36,6 @@ mat-card-image {
     font-size: 36px;
     align-content: center;
 }
+
+
+
