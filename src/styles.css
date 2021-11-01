@@ -13,5 +13,18 @@
 
 
  mat-card {
-     background-color: blue;
+     background-color: cadetblue;
+     margin-top: 30px;
  }
+
+ mat-toolbar {
+     color: aqua;
+ }
+
+ h1 {
+    color: aqua;
+}
+
+
+ 
+ 
