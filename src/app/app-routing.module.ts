@@ -8,8 +8,10 @@ import { DropDownsComponent } from './_components/drop-downs/drop-downs.componen
 import { RadioButtonsComponent } from './_components/radio-buttons/radio-buttons.component';
 import { TogglesComponent } from './_components/toggles/toggles.component';
 import { DatePickersComponent } from './_components/date-pickers/date-pickers.component';
-import { AuthGuardService } from './_services/auth-guard.service';
 import { TablePageComponent } from './_components/table-page/table-page.component';
+import { EndToEndComponent } from './_components/end-to-end/end-to-end.component';
+import { AuthGuardService } from './_services/auth-guard.service';
+
 
 
 const routes: Routes = [
@@ -21,7 +23,8 @@ const routes: Routes = [
   { path: 'radio-button', component: RadioButtonsComponent, canActivate: [AuthGuardService] },
   { path: 'table', component: TablePageComponent, canActivate: [AuthGuardService] },
   { path: 'toggle', component: TogglesComponent, canActivate: [AuthGuardService] },
-  { path: 'date-picker', component: DatePickersComponent, canActivate: [AuthGuardService] }
+  { path: 'date-picker', component: DatePickersComponent, canActivate: [AuthGuardService] },
+  { path: 'end-to-end', component: EndToEndComponent, canActivate: [AuthGuardService] },
 ];
 
 @NgModule({

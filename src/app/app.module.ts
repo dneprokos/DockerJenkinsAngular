@@ -23,6 +23,7 @@ import { ListBoxesComponent } from './_components/list-boxes/list-boxes.componen
 import { TogglesComponent } from './_components/toggles/toggles.component';
 import { DatePickersComponent } from './_components/date-pickers/date-pickers.component';
 import { TablePageComponent } from './_components/table-page/table-page.component';
+import { EndToEndComponent } from './_components/end-to-end/end-to-end.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { TablePageComponent } from './_components/table-page/table-page.componen
     ListBoxesComponent,
     TogglesComponent,
     DatePickersComponent,
-    TablePageComponent
+    TablePageComponent,
+    EndToEndComponent
   ],
   imports: [
     BrowserModule,
