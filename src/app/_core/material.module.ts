@@ -18,8 +18,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule,  } from '@angular/material/core';
 
 @NgModule({
   imports: [
@@ -41,7 +41,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
   MatSelectModule,
   MatRadioModule,
   MatPaginatorModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatDatepickerModule,
+  MatNativeDateModule
   ],
   exports: [
   CommonModule,
@@ -62,7 +64,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
    MatSelectModule,
    MatRadioModule,
    MatPaginatorModule,
-   MatSlideToggleModule
+   MatSlideToggleModule,
+   MatDatepickerModule,
+   MatNativeDateModule
    ]
 })
 export class CustomMaterialModule { }

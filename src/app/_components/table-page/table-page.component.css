@@ -1,5 +1,10 @@
 table {
     width: 100%;
+    
+  }
+ 
+  div.mat-elevation-z8 {
+    border-radius:15px
   }
   
   .mat-form-field {
@@ -9,4 +14,19 @@ table {
   
   td, th {
     width: 25%;
+  }
+
+  .filter {
+    background-color:darkgray;
+    margin-bottom: 5px;
+    border-radius:15px
+  }
+
+  .filter.input {
+    padding-left: 10px;
+  }
+
+  mat-label {
+    padding-top: 10px;
+    padding-left: 10px;
   }
