@@ -2,15 +2,15 @@
     <mat-toolbar color="primary">
         18+
         <div class="text">
-            <p>Created by <b>Kostiantyn Teltov</b> for training purposes.
+            <p>Created by <b>Kostiantyn Teltov</b> only for training purposes.
                 {{ createdYear | date: 'yyyy' }} - {{ yearNow | date: 'yyyy' }}
                 @NON-COMMERCIAL USE PERMITTED
             </p>
             <p>
-                <b>Contact Email:</b>{{ email }};
-                <b>Skype:</b> {{ skype }}.
+                <b>LinkenIn: </b><a href="{{linkedin}}" target="_blank">{{ linkedintext }}.</a>
+                <b>GitHub:</b><a href="{{github}}" target="_blank">{{ githubtext }}.</a>
+                <b>Personal Email:</b><a href="{{email}}" target="_blank">{{ email }}.</a>
             </p>
         </div>
-
     </mat-toolbar>
 </div>
