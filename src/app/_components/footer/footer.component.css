@@ -6,3 +6,8 @@
 .toolbar {
     background-color: aqua;
 }
+
+a {
+    margin-right: 10px;
+    color: whitesmoke;
+}
