@@ -13,8 +13,11 @@ export class FooterComponent implements OnInit {
   yearNow:Date = new Date();
   email: string = 'dneprokos@gmail.com';
   skype: string = 'dneprokos';
-
-
+  github: string = 'https://github.com/dneprokos';
+  githubtext: string = 'dneprokos';
+  linkedin: string = 'https://www.linkedin.com/in/kostiantyn-teltov/';
+  linkedintext: string = 'Kostiantyn Teltov';
+  
   constructor(private globalEventsManager: GlobalEventsManagerService) {
     this.globalEventsManager.showNavBarEmitter.subscribe((mode)=>{           
       this.isComponentShown = mode;
