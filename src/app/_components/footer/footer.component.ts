@@ -7,10 +7,10 @@ import { GlobalEventsManagerService } from 'src/app/_services/global-events-mana
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  isComponentShown: boolean;
+  isComponentShown: boolean = false;
 
   createdYear: Date = new Date(2019, 8, 6);
-  yearNow:Date = new Date();
+  yearNow: Date = new Date();
   email: string = 'dneprokos@gmail.com';
   skype: string = 'dneprokos';
   github: string = 'https://github.com/dneprokos';
@@ -19,12 +19,10 @@ export class FooterComponent implements OnInit {
   linkedintext: string = 'Kostiantyn Teltov';
   
   constructor(private globalEventsManager: GlobalEventsManagerService) {
-    this.globalEventsManager.showNavBarEmitter.subscribe((mode)=>{           
+    this.globalEventsManager.showNavBarEmitter.subscribe((mode: boolean) => {           
       this.isComponentShown = mode;
     });
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit(): void {}
 }

@@ -9,32 +9,40 @@ import { AuthServiceService } from 'src/app/_services/authService/auth-service.s
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  isComponentShown: boolean;
-  userName: string;
+  isComponentShown: boolean = false;
+  userName: string = '';
 
-  constructor(private globalEventsManager: GlobalEventsManagerService, private router: Router, private authService: AuthServiceService) {
-    this.globalEventsManager.showNavBarEmitter.subscribe((mode)=>{           
+  constructor(
+    private globalEventsManager: GlobalEventsManagerService,
+    private router: Router,
+    private authService: AuthServiceService
+  ) {
+    this.globalEventsManager.showNavBarEmitter.subscribe((mode: boolean) => {           
       this.isComponentShown = mode;
     });
-    globalEventsManager.showUserNameEmitter.subscribe((mode)=>{
-      if (mode) this.userName = this.authService.getCurrentUser();
-    })
-   }
-
-  ngOnInit() {
-    this.globalEventsManager.showNavBar(true);
-    this.userName = this.authService.getCurrentUser();
+    
+    globalEventsManager.showUserNameEmitter.subscribe((mode: boolean) => {
+      if (mode) {
+        const currentUser = this.authService.getCurrentUser();
+        this.userName = currentUser || '';
+      }
+    });
   }
 
-  SignOut() {
+  ngOnInit(): void {
+    this.globalEventsManager.showNavBar(true);
+    const currentUser = this.authService.getCurrentUser();
+    this.userName = currentUser || '';
+  }
+
+  SignOut(): void {
     this.performSignOut();
   }
 
-  private performSignOut(){
+  private performSignOut(): void {
     this.router.navigate(['login']);
     this.globalEventsManager.showNavBar(false);
     this.authService.logout();
-    this.userName = undefined;
+    this.userName = '';
   }
-
 }

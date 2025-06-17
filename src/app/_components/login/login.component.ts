@@ -9,25 +9,29 @@ import { GlobalEventsManagerService } from 'src/app/_services/global-events-mana
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username: string;
-  password: string;
-  showSpinner: boolean;
+  username: string = '';
+  password: string = '';
+  showSpinner: boolean = false;
 
-  constructor(private router: Router, private authService: AuthServiceService, private globalEventsManager: GlobalEventsManagerService) { }
+  constructor(
+    private router: Router,
+    private authService: AuthServiceService,
+    private globalEventsManager: GlobalEventsManagerService
+  ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.globalEventsManager.showNavBar(false);
   }
 
-  login() : void {
-    let result = this.authService.login(this.username, this.password);
+  login(): void {
+    const result = this.authService.login(this.username, this.password);
     
-    if (result){
+    if (result) {
       this.globalEventsManager.showNavBar(true);   
       this.router.navigate(['home']);
       this.globalEventsManager.updateUserName(true);
-    }      
-    else alert("Invalid credentials");
+    } else {
+      alert("Invalid credentials");
+    }
   }
-
 }
