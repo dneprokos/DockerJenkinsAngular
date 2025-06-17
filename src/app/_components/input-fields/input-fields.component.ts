@@ -16,8 +16,7 @@ export class InputFieldsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   print(): void {
     this.shortResume = '';

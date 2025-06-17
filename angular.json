@@ -25,7 +25,13 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -62,7 +68,11 @@
               "namedChunks": true
             }
           },
+<<<<<<< HEAD
           "defaultConfiguration": "development"
+=======
+          "defaultConfiguration": ""
+>>>>>>> origin/master
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",

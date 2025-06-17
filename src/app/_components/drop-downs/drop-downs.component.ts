@@ -36,7 +36,6 @@ export class DropDownsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // Initialize with default values if needed
     this.selectedValue = this.foods[0].value;
     this.selectedCar = this.cars[0].value;
   }

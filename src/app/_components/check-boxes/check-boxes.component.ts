@@ -38,8 +38,7 @@ export class CheckBoxesComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   updateAllComplete(): void {
     this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
