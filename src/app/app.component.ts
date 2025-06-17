@@ -8,20 +8,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  ngOnInit() {
+  title: string = 'DockerJenkinsAngular';
+
+  constructor(private authService: AuthServiceService, private router: Router) {}
+
+  ngOnInit(): void {
     this.navigateUserToStartPage();
   }
 
-  constructor(private authService: AuthServiceService, private router: Router) {       
+  private navigateUserToStartPage(): void {
+    const isUserLoggedIn: boolean = this.authService.isUserLogged();
+
+    if (isUserLoggedIn) {
+      this.router.navigate(['home']);
+    } else {
+      this.router.navigate(['login']);
+    }
   }
-
-  title = 'DockerJenkinsAngular';
-
-  private navigateUserToStartPage(){
-    let isUserLoggedIn = this.authService.isUserLogged()
-
-    if (isUserLoggedIn) this.router.navigate(['home']);
-    else this.router.navigate(['login']);
-  }
-
 }

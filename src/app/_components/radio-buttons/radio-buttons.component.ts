@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./radio-buttons.component.css']
 })
 export class RadioButtonsComponent implements OnInit {
-  favoriteSeason: string;
+  favoriteSeason: string = '';
   seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

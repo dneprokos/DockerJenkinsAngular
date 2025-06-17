@@ -6,22 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./input-fields.component.css']
 })
 export class InputFieldsComponent implements OnInit {
-  firstName: string
-  lastName: string
-  primaryProgrammingLanguage: string
-  otherProgrammingLenguages: string
-  yearsExperience: string
-  city: string
-
-  shortResume: string
+  firstName: string = '';
+  lastName: string = '';
+  primaryProgrammingLanguage: string = '';
+  otherProgrammingLenguages: string = '';
+  yearsExperience: string = '';
+  city: string = '';
+  shortResume: string = '';
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   print(): void {
-    this.shortResume = null
+    this.shortResume = '';
     console.log(this.firstName);
     console.log(this.lastName);
 
@@ -33,7 +32,6 @@ export class InputFieldsComponent implements OnInit {
       \tOther programming languages: ${this.otherProgrammingLenguages}
       \tTotal years of experience in QA area: ${this.yearsExperience}
       \tLiving in: ${this.city}  
-    `
+    `;
   }
-
 }

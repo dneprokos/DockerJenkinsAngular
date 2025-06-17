@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 interface Food {
   value: string;
@@ -17,8 +17,8 @@ interface Car {
   styleUrls: ['./drop-downs.component.css']
 })
 export class DropDownsComponent implements OnInit {
-  selectedValue: string;
-  selectedCar: string;
+  selectedValue: string = '';
+  selectedCar: string = '';
 
   foods: Food[] = [
     {value: 'steak-0', viewValue: 'Steak'},
@@ -33,10 +33,11 @@ export class DropDownsComponent implements OnInit {
     {value: 'mercedes', viewValue: 'Mercedes'}
   ];
 
-
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    // Initialize with default values if needed
+    this.selectedValue = this.foods[0].value;
+    this.selectedCar = this.cars[0].value;
   }
-
 }

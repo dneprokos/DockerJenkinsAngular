@@ -1,24 +1,75 @@
 mat-grid-tile {
     background: lightblue;
-    justify-content: flex-start !important ;
-    align-items: flex-start !important;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 .text {
-    position: absolute;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 30px;
+    padding: 30px;
     font-size: 17px;
-    vertical-align: baseline;
+    line-height: 1.5;
+    text-align: justify;
+    height: 100%;
+    overflow-y: auto;
 }
 
-mat-card-image {
-    object-fit: cover;
-    background-size: cover;
-    align-content: center;
-    align-self: center;
+.image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.docker-image {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.jenkins-image {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.material-icons {
+    font-size: 36px;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.home-title {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.home-title h1 {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 24px;
+}
+
+mat-grid-list {
+    margin: 20px;
+}
+
+/* Add some hover effects for interactivity */
+.image-container img {
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
 }
 
 .image {
@@ -30,16 +81,6 @@ mat-card-image {
 .longImage {
     align-self: center;
     padding-left: 1px;
-}
-
-.material-icons {
-    font-size: 36px;
-    align-content: center;
-}
-
-.home-title {
-    margin-top: 80px;
-    margin-bottom: 80px;
 }
 
 

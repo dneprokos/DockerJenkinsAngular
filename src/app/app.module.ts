@@ -24,7 +24,7 @@ import { TogglesComponent } from './_components/toggles/toggles.component';
 import { DatePickersComponent } from './_components/date-pickers/date-pickers.component';
 import { TablePageComponent } from './_components/table-page/table-page.component';
 import { EndToEndComponent } from './_components/end-to-end/end-to-end.component';
-import { RandomComponent } from './random/random.component';
+import { RandomComponent } from './_components/random/random.component';
 
 @NgModule({
   declarations: [

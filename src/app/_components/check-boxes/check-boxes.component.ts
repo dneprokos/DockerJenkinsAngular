@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import {ThemePalette} from '@angular/material/core';
+import { ThemePalette } from '@angular/material/core';
 
 export interface Task {
   name: string;
@@ -16,7 +16,7 @@ export interface Task {
 })
 export class CheckBoxesComponent implements OnInit {
   checked = false;
-  toppings: FormGroup;
+  toppings: FormGroup = new FormGroup({});
   task: Task = {
     name: 'Indeterminate',
     completed: false,
@@ -30,11 +30,18 @@ export class CheckBoxesComponent implements OnInit {
 
   allComplete: boolean = false;
 
-  ngOnInit() {
+  constructor(private formBuilder: FormBuilder) {
+    this.toppings = this.formBuilder.group({
+      pepperoni: false,
+      extracheese: false,
+      mushroom: false
+    });
   }
-  constructor() {}
 
-  updateAllComplete() {
+  ngOnInit(): void {
+  }
+
+  updateAllComplete(): void {
     this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
   }
 
@@ -45,7 +52,7 @@ export class CheckBoxesComponent implements OnInit {
     return this.task.subtasks.filter(t => t.completed).length > 0 && !this.allComplete;
   }
 
-  setAll(completed: boolean) {
+  setAll(completed: boolean): void {
     this.allComplete = completed;
     if (this.task.subtasks == null) {
       return;

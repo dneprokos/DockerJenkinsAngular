@@ -5,34 +5,31 @@ import { Credentials } from 'src/app/_interfaces/credentials';
   providedIn: 'root'
 })
 export class AuthServiceService {
-  expectedCredentials: Credentials = { userName: 'test@test.com', password: 'test' };
+  private readonly expectedCredentials: Credentials = { userName: 'test@test.com', password: 'test' };
 
   constructor() { }
 
-  login(userName: string, password: string): Boolean {
+  login(userName: string, password: string): boolean {
     console.log(userName, password);
 
-
-    if (userName.toLocaleLowerCase() === this.expectedCredentials.userName &&
-     password === this.expectedCredentials.password) {
+    if (userName.toLowerCase() === this.expectedCredentials.userName &&
+        password === this.expectedCredentials.password) {
       sessionStorage.setItem('user', 'admin');
-      return true
+      return true;
     }
-    else return false;
-  }
-
-  logout(){
-    sessionStorage.removeItem('user');
-  }
-
-  isUserLogged(): Boolean{
-    let userName = this.getCurrentUser(); 
-    
-    if (userName && userName === 'admin') return true;    
     return false;
   }
 
-  getCurrentUser(): string {
+  logout(): void {
+    sessionStorage.removeItem('user');
+  }
+
+  isUserLogged(): boolean {
+    const userName = this.getCurrentUser();
+    return userName === 'admin';
+  }
+
+  getCurrentUser(): string | null {
     return sessionStorage.getItem('user');
   }
 }
