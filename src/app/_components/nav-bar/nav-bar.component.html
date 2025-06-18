@@ -1,52 +1,22 @@
 <div class="toolbar" *ngIf="isComponentShown">
     <mat-toolbar color="primary">
         <mat-toolbar-row class="content">
-            <div fxShow="true" fxHide.lt-md="true">
-                <span>QA Automation Web</span>
-                <span class="example-spacer"></span>
-            </div>
-            <div fxShow="true" fxHide.lt-md="true">
-                <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-                <div>
-                    <a mat-button [routerLink]="'home'">
-                        <mat-icon>home</mat-icon>
-                        Home
-                    </a>
-                    <a mat-button [routerLink]="'check-box'">
-                        <mat-icon>check_circle</mat-icon>
-                        Check-boxes
-                    </a>
-                    <a mat-button [routerLink]="'input'">
-                        <mat-icon>text_fields</mat-icon>
-                        Input fields
-                    </a>
-                    <a mat-button [routerLink]="'drop-down'">
-                        <mat-icon>arrow_drop_down_circle</mat-icon>
-                        Drop-downs
-                    </a>
-                    <a mat-button [routerLink]="'radio-button'">
-                        <mat-icon>radio_button_checked</mat-icon>
-                        Radio-buttons
-                    </a>
-                    <a mat-button [routerLink]="'table'">
-                        <mat-icon>table_chart</mat-icon>
-                        Table
-                    </a>
-                    <a mat-button [routerLink]="'toggle'">
-                        <mat-icon>share</mat-icon>
-                        Toggles
-                    </a>
-                    <a mat-button [routerLink]="'date-picker'">
-                        <mat-icon>date_range</mat-icon>
-                        Date pickers
-                    </a>
-                    <a mat-button [routerLink]="'end-to-end'">
-                        <mat-icon>trending_up</mat-icon>
-                        E2E scenario
-                        <mat-icon>trending_down</mat-icon>
-                    </a>
-                </div>
-            </div>
+            <button mat-icon-button class="mobile-menu" (click)="openDrawer()" *ngIf="!isDrawer">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span class="site-title">QA Automation Web</span>
+            <span class="spacer"></span>
+            <nav class="nav-links" *ngIf="!isDrawer">
+                <a *ngFor="let link of navLinks"
+                   mat-button
+                   [routerLink]="link.path"
+                   routerLinkActive="active-link"
+                   [routerLinkActiveOptions]="{ exact: true }"
+                   (click)="onNavLinkClick()">
+                    <mat-icon>{{ link.icon }}</mat-icon>
+                    {{ link.label }}
+                </a>
+            </nav>
             <div class="account">
                 <mat-menu #appMenu="matMenu">
                     <ng-template matMenuContent let-name="name">
@@ -66,8 +36,27 @@
                 </button>
             </div>
         </mat-toolbar-row>
-        <mat-toolbar-row class="content">
-            <span style="font-size: 12px;">Simple website designed for Docker practice</span>
+        <mat-toolbar-row class="content" *ngIf="!isDrawer">
+            <span style="font-size: 12px;">Website for UI test automation practice.</span>
         </mat-toolbar-row>
     </mat-toolbar>
+</div>
+
+<!-- Drawer navigation for mobile -->
+<div *ngIf="isDrawer" class="drawer-nav">
+    <nav>
+        <a *ngFor="let link of navLinks"
+           mat-list-item
+           [routerLink]="link.path"
+           routerLinkActive="active-link"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="onNavLinkClick()">
+            <mat-icon>{{ link.icon }}</mat-icon>
+            {{ link.label }}
+        </a>
+        <button mat-list-item (click)="SignOut()">
+            <mat-icon>work_off</mat-icon>
+            Log off
+        </button>
+    </nav>
 </div>

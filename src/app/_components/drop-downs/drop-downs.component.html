@@ -1,25 +1,29 @@
-<mat-card>
-<form>
-    <h4>mat-select</h4>
-    <mat-form-field appearance="fill">
-      <mat-label>Favorite food</mat-label>
-      <mat-select [(ngModel)]="selectedValue" name="food">
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{food.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <p> Selected food: {{selectedValue}} </p>
-    <h4>native html select</h4>
-    <mat-form-field appearance="fill">
-      <mat-label>Favorite car</mat-label>
-      <select matNativeControl [(ngModel)]="selectedCar" name="car">
-        <option value="" selected></option>
-        <option *ngFor="let car of cars" [value]="car.value">
-          {{car.viewValue}}
-        </option>
-      </select>
-    </mat-form-field>
-    <p> Selected car: {{selectedCar}} </p>
-  </form>
-</mat-card>
+<div class="page-container">
+  <div class="dropdowns-grid">
+    <mat-card>
+      <mat-card-title>mat-select</mat-card-title>
+      <mat-form-field appearance="fill" class="dropdown-field">
+        <mat-label>Favorite food</mat-label>
+        <mat-select [(value)]="selectedValue">
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{food.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="selected-label">Selected food: {{selectedValue}}</div>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>Native html select</mat-card-title>
+      <mat-form-field appearance="fill" class="dropdown-field">
+        <mat-label>Favorite car</mat-label>
+        <mat-select [(value)]="selectedCar">
+          <mat-option *ngFor="let car of cars" [value]="car.value">
+            {{car.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="selected-label">Selected car: {{selectedCar}}</div>
+    </mat-card>
+  </div>
+</div>

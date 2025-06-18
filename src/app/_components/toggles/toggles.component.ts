@@ -10,6 +10,9 @@ export class TogglesComponent implements OnInit {
   color: ThemePalette = 'accent';
   checked = false;
   disabled = false;
+  toggle1: boolean = false;
+  toggle2: boolean = false;
+  toggle3: boolean = false;
 
   constructor() { }
 
