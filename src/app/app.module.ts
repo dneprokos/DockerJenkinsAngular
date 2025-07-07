@@ -25,6 +25,7 @@ import { DatePickersComponent } from './_components/date-pickers/date-pickers.co
 import { TablePageComponent } from './_components/table-page/table-page.component';
 import { EndToEndComponent } from './_components/end-to-end/end-to-end.component';
 import { RandomComponent } from './_components/random/random.component';
+import { NguCarousel, NguCarouselDefDirective, NguCarouselNextDirective, NguCarouselPrevDirective, NguItemComponent } from '@ngu/carousel';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,12 @@ import { RandomComponent } from './_components/random/random.component';
     BrowserAnimationsModule,
     CustomMaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NguCarousel,
+    NguCarouselDefDirective,
+    NguCarouselNextDirective,
+    NguCarouselPrevDirective,
+    NguItemComponent
   ],
   providers: [
     AuthServiceService,

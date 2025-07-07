@@ -7,31 +7,25 @@
     </mat-grid-tile>
   </mat-grid-list>
 
-  <mat-grid-list cols="4" rowHeight="2:2" gutterSize="20px">
-    <mat-grid-tile>
+  <ngu-carousel #carousel [inputs]="carouselConfig" [dataSource]="images">
+    <div *nguCarouselDef="let item" class="item">
       <div class="image-container">
-        <img class="docker-image" src="assets/images/homePage/Docker1.png" alt="Docker logo">
+        <img [src]="item" alt="Carousel image" class="docker-image"/>
       </div>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <div class="image-container">
-        <img class="docker-image" src="assets/images/homePage/Docker2.png" alt="Docker architecture">
-      </div>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <div class="image-container">
-        <img class="jenkins-image" src="assets/images/homePage/Jenkins1.png" alt="Jenkins logo">
-      </div>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <div class="image-container">
-        <img class="jenkins-image" src="assets/images/homePage/Jenkins2.jpg" alt="Jenkins with Docker">
-      </div>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="2" [rowspan]="2">
+    </div>
+    <button NguCarouselPrev class="leftRs">&lt;</button>
+    <button NguCarouselNext class="rightRs">&gt;</button>
+
+    <ul class="myPoint" NguCarouselPoint>
+        <li *ngFor="let i of carousel.pointNumbers" [class.active]="i==carousel.activePoint" (click)="carousel.moveTo(i)"></li>
+    </ul>
+  </ngu-carousel>
+
+  <mat-grid-list cols="2" rowHeight="2:2" gutterSize="20px">
+    <mat-grid-tile [colspan]="1" [rowspan]="2">
       <div class="text">{{ dockerText }}</div>
     </mat-grid-tile>
-    <mat-grid-tile [colspan]="2" [rowspan]="2">
+    <mat-grid-tile [colspan]="1" [rowspan]="2">
       <div class="text">{{ jenkinsText }}</div>
     </mat-grid-tile>
   </mat-grid-list>

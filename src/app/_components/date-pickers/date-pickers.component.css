@@ -20,3 +20,48 @@
   color: #666;
   margin-top: 8px;
 }  
+
+.date-range-image {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  width: 120px;
+  max-width: 30vw;
+  opacity: 0.85;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+
+@media (max-width: 900px) {
+  .date-range-image {
+    width: 80px;
+    bottom: 12px;
+    right: 12px;
+  }
+}  
+
+.date-bg-planet {
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  width: 320px;
+  max-width: 60vw;
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(0.5px) grayscale(0.2);
+}
+
+@media (max-width: 900px) {
+  .date-bg-planet {
+    width: 180px;
+    bottom: 12px;
+  }
+}
+
+.page-container {
+  position: relative;
+}  

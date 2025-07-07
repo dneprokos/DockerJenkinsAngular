@@ -1,11 +1,11 @@
 <div class="page-container">
   <mat-card>
-    <mat-card-title>Radio Buttons Example</mat-card-title>
+    <mat-card-title class="card-title">Radio Buttons Example</mat-card-title>
     <mat-radio-group [(ngModel)]="favoriteSeason" name="favoriteSeason">
       <mat-radio-button *ngFor="let season of seasons" [value]="season">
         {{season}}
       </mat-radio-button>
     </mat-radio-group>
-    <div>Favorite season: {{ favoriteSeason }}</div>
+    <div class="info-label">Favorite season: {{ favoriteSeason }}</div>
   </mat-card>
 </div>

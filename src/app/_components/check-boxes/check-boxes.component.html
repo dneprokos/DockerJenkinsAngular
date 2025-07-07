@@ -1,16 +1,16 @@
 <div class="page-container">
   <mat-card>
-    <mat-card-title>Check Boxes Example</mat-card-title>
+    <mat-card-title class="card-title">Check Boxes Example</mat-card-title>
     <form [formGroup]="toppings" class="checkbox-group">
       <mat-checkbox formControlName="pepperoni">Pepperoni</mat-checkbox>
       <mat-checkbox formControlName="extracheese">Extra Cheese</mat-checkbox>
       <mat-checkbox formControlName="mushroom">Mushroom</mat-checkbox>
     </form>
-    <div class="selected-label">Selected: {{ toppings.value | json }}</div>
+    <div class="info-label">Selected: {{ toppings.value | json }}</div>
   </mat-card>
 
   <mat-card>
-    <mat-card-title>Task List</mat-card-title>
+    <mat-card-title class="card-title">Task List</mat-card-title>
     <div class="checkbox-group">
       <mat-checkbox [(ngModel)]="allComplete" (change)="setAll($event.checked)">
         {{task.name}}
@@ -21,8 +21,8 @@
         {{subtask.name}}
       </mat-checkbox>
     </div>
-    <div class="selected-label">All complete: {{ allComplete }}</div>
-    <div class="selected-label">Some complete: {{ someComplete() }}</div>
+    <div class="info-label">All complete: {{ allComplete }}</div>
+    <div class="info-label">Some complete: {{ someComplete() }}</div>
   </mat-card>
 </div>
 
