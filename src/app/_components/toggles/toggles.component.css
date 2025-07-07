@@ -12,3 +12,17 @@
   .example-margin {
     margin: 10px;
   }
+
+.toggle-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.selected-label {
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: 8px;
+}

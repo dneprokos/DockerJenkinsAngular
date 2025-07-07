@@ -11,7 +11,7 @@ import { HomeComponent } from './_components/home/home.component';
 import { AuthServiceService } from './_services/authService/auth-service.service';
 import { AuthGuardService } from './_services/auth-guard.service';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavBarComponent } from './_components/nav-bar/nav-bar.component';
 import { GlobalEventsManagerService } from './_services/global-events-manager.service';
 import { FooterComponent } from './_components/footer/footer.component';
@@ -25,6 +25,7 @@ import { DatePickersComponent } from './_components/date-pickers/date-pickers.co
 import { TablePageComponent } from './_components/table-page/table-page.component';
 import { EndToEndComponent } from './_components/end-to-end/end-to-end.component';
 import { RandomComponent } from './_components/random/random.component';
+import { NguCarousel, NguCarouselDefDirective, NguCarouselNextDirective, NguCarouselPrevDirective, NguItemComponent } from '@ngu/carousel';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,13 @@ import { RandomComponent } from './_components/random/random.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     CustomMaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    NguCarousel,
+    NguCarouselDefDirective,
+    NguCarouselNextDirective,
+    NguCarouselPrevDirective,
+    NguItemComponent
   ],
   providers: [
     AuthServiceService,

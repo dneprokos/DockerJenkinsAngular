@@ -9,6 +9,8 @@ import {FormGroup, FormControl} from '@angular/forms';
 export class DatePickersComponent implements OnInit {
   campaignOne: FormGroup;
   campaignTwo: FormGroup;
+  date1: Date | null = null;
+  date2: Date | null = null;
 
   constructor() {
     const today = new Date();

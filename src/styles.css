@@ -1,3 +1,61 @@
+/* --- Robust fix for rounded containers and their children (with extra bottom padding) --- */
+
+.mat-card, .page-container, [style*="border-radius"], .rounded, .card-rounded {
+  box-sizing: border-box;
+  padding: 1.5rem;
+  padding-bottom: 2.5rem; /* Extra bottom padding to prevent clipping */
+  border-radius: 16px;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Ensure all direct children are block and full width */
+.mat-card > *,
+.page-container > *,
+[style*="border-radius"] > *,
+.rounded > *,
+.card-rounded > * {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0.75rem;
+  word-break: break-word;
+}
+
+/* Remove bottom margin for last child, but add a little space for safety */
+.mat-card > *:last-child,
+.page-container > *:last-child,
+[style*="border-radius"] > *:last-child,
+.rounded > *:last-child,
+.card-rounded > *:last-child {
+  margin-bottom: 0.5rem;
+}
+
+/* Clearfix utility for all rounded containers */
+.mat-card::after,
+.page-container::after,
+[style*="border-radius"]::after,
+.rounded::after,
+.card-rounded::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive fix for small screens */
+@media (max-width: 600px) {
+  .mat-card,
+  .page-container,
+  [style*="border-radius"],
+  .rounded,
+  .card-rounded {
+    padding: 0.75rem;
+    padding-bottom: 1.5rem;
+    border-radius: 10px;
+  }
+}
+
 /* You can add global styles to this file, and also import other style files */
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
@@ -15,6 +73,8 @@
  mat-card {
      background-color: cadetblue;
      margin-top: 30px;
+     border-radius: 16px !important;
+     box-shadow: 0 2px 16px rgba(0,0,0,0.06) !important;
  }
 
  mat-toolbar {
@@ -22,12 +82,53 @@
  }
 
  h1 {
-    color: aqua;
+    color: #c5c5c5;
 }
 
 .home-title {
     margin-top: 80px;
     margin-bottom: 80px;
+}
+
+.page-container {
+  max-width: 900px;
+  margin: 32px auto 32px auto;
+  padding: 24px;
+  background: #0a0a1a url('data:image/svg+xml;utf8,<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.2"><path d="M60 10 L65 30 L80 35 L65 40 L60 60 L55 40 L40 35 L55 30 Z" stroke="white" stroke-width="2" fill="none"/><circle cx="90" cy="90" r="8" stroke="white" stroke-width="2" fill="none"/><circle cx="30" cy="100" r="4" stroke="white" stroke-width="2" fill="none"/><circle cx="100" cy="30" r="3" stroke="white" stroke-width="2" fill="none"/><circle cx="20" cy="20" r="2" stroke="white" stroke-width="2" fill="none"/></g></svg>') repeat;
+  background-size: 220px 220px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+}
+
+.page-container > *:not(mat-card):not(.mat-card) {
+  color: #e0e0e0;
+}
+
+/* Optional: make mat-card look even better */
+mat-card {
+  border-radius: 16px !important;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06) !important;
+  background-color: #0a0a1a;
+}
+
+/* Utility class for info/summary lines inside cards/containers */
+.info-label {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: block;
+}
+
+/* Consistent padding for card/page headers */
+.card-title, .mat-card-title, .page-header, .page-title {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: block;
+  box-sizing: border-box;
 }
 
  

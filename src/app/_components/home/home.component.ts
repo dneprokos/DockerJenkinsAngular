@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NguCarouselConfig } from '@ngu/carousel';
 
 @Component({
   selector: 'home',
@@ -6,6 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  images = [
+    'assets/images/homePage/Docker1.png',
+    'assets/images/homePage/Docker2.png',
+    'assets/images/homePage/Jenkins1.png',
+    'assets/images/homePage/Jenkins2.jpg'
+  ];
+
+  public carouselConfig: NguCarouselConfig = {
+    grid: { xs: 1, sm: 2, md: 3, lg: 3, all: 0 },
+    slide: 1,
+    load: 4,
+    loop: true,
+    touch: true,
+    velocity: 0.2,
+    point: {
+      visible: true,
+      hideOnSingleSlide: true
+    }
+  };
 
   constructor() { }
 

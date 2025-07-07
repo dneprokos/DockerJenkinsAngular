@@ -54,6 +54,48 @@ c) Configure as a single-page app (rewrite all URLs to /index.html)? - Select No
 
 Note: This deployment instruction was working with Angular version 12.2.2
 
+### Why did this happen?
+During the `firebase init hosting` step, the script (or the CLI prompt) set the **public directory** to `public` (the default), not to your Angular build output (`dist/docker-jenkins-angular`).  
+So, Firebase is deploying the contents of the `public` folder, not your Angular app.
+
+---
+
+## How to Fix
+
+1. **Update Firebase Hosting config to use your Angular build output:**
+   - The correct public directory should be:  
+     `dist/docker-jenkins-angular`
+
+2. **Edit `firebase.json`:**
+   - Open `firebase.json` and set:
+     ```json
+     {
+       "hosting": {
+         "public": "dist/docker-jenkins-angular",
+         "ignore": [
+           "firebase.json",
+           "**/.*",
+           "**/node_modules/**"
+         ],
+         "rewrites": [
+           { "source": "**", "destination": "/index.html" }
+         ]
+       }
+     }
+     ```
+
+3. **Delete the `public` folder** (optional, to avoid confusion).
+
+4. **Rebuild and redeploy:**
+   ```sh
+   npm run build-prod
+   firebase deploy --only hosting
+   ```
+
+---
+
+Would you like me to automatically update your `firebase.json` and redeploy for you?
+
 
 
 

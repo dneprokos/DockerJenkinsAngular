@@ -1,5 +1,8 @@
 .account {
     padding: 100px;
+    margin-left: 16px;
+    display: flex;
+    align-items: center;
 }
 
 .content {
@@ -12,7 +15,92 @@
  }
 
 .toolbar {
-    position: fixed;
-    z-index: 2;
-    width: 100%;    
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.site-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-links a {
+    color: #fff;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a.active-link, .nav-links a:hover {
+    background: rgba(255,255,255,0.15);
+    color: #ffe082;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .nav-links {
+        gap: 2px;
+    }
+    .site-title {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-links {
+        display: none;
+    }
+    .mobile-menu {
+        display: inline-flex;
+        margin-right: 8px;
+    }
+    .drawer-nav {
+        padding: 24px 0;
+        background: #1976d2;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .drawer-nav a, .drawer-nav button {
+        color: #fff;
+        font-size: 1.1rem;
+        text-align: left;
+        width: 100%;
+        border-radius: 0;
+        padding: 12px 24px;
+        background: none;
+        border: none;
+        outline: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .drawer-nav a.active-link, .drawer-nav a:hover, .drawer-nav button:hover {
+        background: rgba(255,255,255,0.15);
+        color: #ffe082;
+    }
+    .account {
+        margin-left: 0;
+    }
 } 

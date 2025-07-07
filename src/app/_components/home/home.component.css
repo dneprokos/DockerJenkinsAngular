@@ -3,6 +3,7 @@ mat-grid-tile {
     display: flex;
     justify-content: center !important;
     align-items: center !important;
+    border-radius: 15px;
 }
 
 .text {
@@ -12,6 +13,11 @@ mat-grid-tile {
     text-align: justify;
     height: 100%;
     overflow-y: auto;
+    font-family: 'Orbitron', sans-serif;
+    color: #88ddff;
+    background-color: #1a1a2e;
+    text-shadow: 0 0 2px #88ddff;
+    border: 1px solid #88ddff;
 }
 
 .image-container {
@@ -57,6 +63,7 @@ mat-grid-tile {
     justify-content: center;
     color: #333;
     font-size: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 mat-grid-list {
@@ -81,6 +88,55 @@ mat-grid-list {
 .longImage {
     align-self: center;
     padding-left: 1px;
+}
+
+:host ::ng-deep .leftRs, :host ::ng-deep .rightRs {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+}
+
+:host ::ng-deep .leftRs {
+    left: 10px;
+}
+
+:host ::ng-deep .rightRs {
+    right: 10px;
+}
+
+:host ::ng-deep .myPoint {
+    list-style-type: none;
+    text-align: center;
+    padding: 12px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: auto;
+    position: absolute;
+    width: 100%;
+    bottom: -50px;
+    left: 0;
+    box-sizing: border-box;
+}
+
+:host ::ng-deep .myPoint li {
+    display: inline-block;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 5px;
+    margin: 0 3px;
+    transition: .4s ease all;
+    cursor: pointer;
+}
+
+:host ::ng-deep .myPoint li.active {
+    background: #6b6b6b;
+    transform: scale(1.2);
 }
 
 

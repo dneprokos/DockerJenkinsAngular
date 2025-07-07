@@ -1,3 +1,51 @@
 mat-card {
     height: max-content;
 }
+
+.dropdowns-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+@media (max-width: 900px) {
+  .dropdowns-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dropdown-field {
+  width: 100%;
+}
+
+.selected-label {
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: 8px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.dropdown-bg-rocket {
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  width: 320px;
+  max-width: 60vw;
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(0.5px) grayscale(0.2);
+}
+
+@media (max-width: 900px) {
+  .dropdown-bg-rocket {
+    width: 180px;
+    bottom: 12px;
+  }
+}
+
+.page-container {
+  position: relative;
+}

@@ -1,11 +1,17 @@
-<div class="mainConteiner">
-<div class="navigation">
-    <nav-bar></nav-bar>
-</div>
-<div class="content">
-    <router-outlet></router-outlet>
-</div>
-<div class="footer">
-    <footer></footer>
-</div>
-</div>
+<mat-sidenav-container class="main-container" autosize>
+  <mat-sidenav #drawer mode="over" class="app-sidenav" [opened]="false">
+    <nav-bar [isDrawer]="true" (closeDrawer)="drawer.close()"></nav-bar>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="navigation">
+      <nav-bar [drawerRef]="drawer"></nav-bar>
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="footer">
+      <footer></footer>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
